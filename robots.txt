@@ -1,3 +1,26 @@
+# توفير هب — غيّر example.com إلى دومينك الحقيقي
 User-agent: *
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+
+# برامج بحث الذكاء الاصطناعي (تظهر موقعك في إجابات المساعدات)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# برامج تدريب النماذج (ممنوعة — لا تؤثر على الظهور في البحث)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
 Sitemap: https://example.com/sitemap.xml

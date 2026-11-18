@@ -10,7 +10,11 @@
   <meta property="og:title" content="توفير هب | أكواد خصم نون وديفاكتو ونمشي" />
   <meta property="og:description" content="أكواد خصم منظمة حسب المتجر: نون مصر، نون الخليج، ديفاكتو، نمشي، ممزورلد. انسخ الكود واستخدمه عند الدفع." />
   <meta property="og:locale" content="ar_EG" />
-  <link rel="stylesheet" href="./style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
   <script type="application/ld+json">
   {
@@ -97,13 +101,14 @@
           <input id="q" type="search" placeholder="ابحث: نون مصر، ديفاكتو، نمشي، ACC20…" autocomplete="off" />
           <button id="clearSearch" type="button">مسح</button>
         </div>
-        <p class="note">⚠️ الأكواد المعروضة هي أكوادك الخاصة من الجدول. عدّل نسب الخصم وتواريخ الانتهاء في ملف <code>codes.json</code> قبل النشر النهائي.</p>
+        <ul class="stats"><li><b id="statCodes">—</b> كود فعّال</li><li><b id="statStores">—</b> متاجر</li><li>الأكواد المنتهية تختفي تلقائيًا</li></ul>
       </div>
     </section>
 
     <section id="stores" class="section">
       <div class="container">
         <h2>المتاجر</h2>
+        <p class="muted">اختر المتجر لعرض أكواده فقط.</p>
         <div class="store-grid" id="storeGrid" aria-live="polite">
           <!-- يُبنى بالجافاسكربت -->
         </div>
@@ -113,7 +118,7 @@
     <section id="codes" class="section section-alt">
       <div class="container">
         <div class="codes-head">
-          <h2>كل الأكواد</h2>
+          <h2>أكواد الخصم</h2>
           <div class="filters" role="group" aria-label="تصفية حسب المتجر">
             <button class="filter is-active" data-store="all" type="button">الكل</button>
             <button class="filter" data-store="noon-egypt" type="button">نون مصر</button>
@@ -134,7 +139,7 @@
         <h2>إزاي تستخدم الكود؟</h2>
         <ol>
           <li>اختار المتجر (مثال: نون مصر).</li>
-          <li>دوس <strong>نسخ الكود</strong>.</li>
+          <li>دوس <strong>نسخ الكود</strong>، أو <strong>اذهب إلى المتجر</strong> وهينسخ الكود لك تلقائيًا ويفتح المتجر.</li>
           <li>الصق الكود في خانة الخصم عند الدفع قبل تأكيد الطلب.</li>
           <li>لو ما اشتغلش، جرّب كود بديل من نفس المتجر.</li>
         </ol>
@@ -167,12 +172,13 @@
   <footer class="site-footer">
     <div class="container">
       <p><strong>توفير هب</strong> — محتوى أصلي. آخر مراجعة للأكواد: 19 نوفمبر 2026.</p>
+      <p class="disclosure">قد تحتوي أزرار «اذهب إلى المتجر» على روابط أفلييت؛ لا تزيد السعر عليك وتساعدنا على تحديث الأكواد.</p>
       <p class="muted">تنبيه: أسماء المتاجر (نون، ديفاكتو، نمشي، ممزورلد) علامات تجارية لأصحابها. هذا الموقع دليل مستقل للأكواد الخاصة بنا وليس تابعًا لها.</p>
     </div>
   </footer>
 
   <div id="toast" role="status" aria-live="polite"></div>
 
-  <script src="./app.js"></script>
+  <script src="assets/js/app.js"></script>
 </body>
 </html>
