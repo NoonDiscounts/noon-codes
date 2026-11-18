@@ -1,0 +1,70 @@
+:root{
+  --bg:#f7f7fb;
+  --card:#ffffff;
+  --ink:#1a1d29;
+  --muted:#6b7280;
+  --brand:#6d28d9;
+  --brand-2:#f59e0b;
+  --line:#e9e9f2;
+  --ok:#15803d;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:"Segoe UI",Tahoma,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.8;
+}
+.container{max-width:1080px;margin:0 auto;padding:0 18px}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.skip{position:absolute;right:12px;top:-50px;background:#111;color:#fff;padding:8px 14px;border-radius:8px;z-index:20}
+.skip:focus{top:12px}
+.site-header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;gap:12px}
+.brand{display:flex;align-items:center;gap:10px}
+.logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--brand),#9333ea);color:#fff;display:grid;place-items:center;font-size:24px;font-weight:800}
+.brand small{display:block;color:var(--muted);font-size:12px}
+nav a{margin-inline-start:14px;color:var(--ink);text-decoration:none;font-weight:600}
+nav a:hover{color:var(--brand)}
+.hero{background:linear-gradient(180deg,#ede9fe,transparent);padding:44px 0 18px}
+.hero h1{margin:0 0 8px;font-size:clamp(24px,4vw,38px);line-height:1.4}
+.lead{max-width:70ch;color:#333}
+.search-row{display:flex;gap:8px;margin-top:16px}
+.search-row input{flex:1;padding:12px 14px;border:1px solid var(--line);border-radius:12px;font-size:16px}
+.search-row button{padding:12px 16px;border:1px solid var(--line);background:#fff;border-radius:12px;cursor:pointer}
+.note{background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:10px 14px;margin-top:14px}
+.section{padding:34px 0}
+.section-alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.store-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-top:14px}
+.store-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;text-align:center;cursor:pointer}
+.store-card:hover{border-color:var(--brand)}
+.store-card strong{display:block}
+.store-card span{color:var(--muted);font-size:13px}
+.codes-head{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.filter{border:1px solid var(--line);background:#f8f7ff;border-radius:999px;padding:8px 14px;cursor:pointer}
+.filter.is-active{background:var(--brand);color:#fff;border-color:var(--brand)}
+.muted{color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px;margin-top:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.card-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.badge{background:#eef2ff;color:#3730a3;border-radius:999px;padding:4px 10px;font-size:13px}
+.expiry{font-size:13px;color:var(--muted)}
+.card h3{margin:0;font-size:18px}
+.card p{margin:0;color:#3a3f52;font-size:15px}
+.code-row{display:flex;gap:8px;align-items:stretch;margin-top:4px}
+.code{flex:1;background:#111827;color:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;letter-spacing:1px;padding:10px;direction:ltr}
+.copy{background:var(--brand);color:#fff;border:0;border-radius:10px;padding:10px 14px;cursor:pointer;font-weight:700}
+.copy:hover{filter:brightness(.95)}
+.how ol{margin:0;padding-inline-start:20px}
+details{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:10px;background:#fbfbff}
+summary{cursor:pointer;font-weight:700}
+.site-footer{padding:26px 0 40px;color:#333}
+#toast{position:fixed;bottom:18px;right:50%;transform:translateX(50%);background:#111827;color:#fff;padding:10px 18px;border-radius:999px;opacity:0;pointer-events:none;transition:.25s}
+#toast.show{opacity:1}
+code{background:#f3f4f6;padding:2px 6px;border-radius:6px}
+@media (max-width:640px){
+  .header-inner{flex-direction:column;align-items:flex-start}
+  nav a:first-child{margin-inline-start:0}
+}

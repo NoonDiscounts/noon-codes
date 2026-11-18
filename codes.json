@@ -1,0 +1,137 @@
+[
+  {
+    "id": "noon-egy-rz46",
+    "store": "noon-egypt",
+    "code": "RZ46",
+    "title": "كود خصم نون مصر",
+    "description": "استخدم الكود عند الدفع في نون مصر. عدّل نسبة الخصم هنا بعد التأكد من العرض.",
+    "expiry": "2026-12-31",
+    "verified": "2026-11-19"
+  },
+  {
+    "id": "noon-egy-zwr",
+    "store": "noon-egypt",
+    "code": "ZWR",
+    "title": "كود خصم نون مصر",
+    "description": "كود إضافي لنون مصر. حدّث الوصف بنسبة الخصم الرسمية.",
+    "expiry": "2026-12-31",
+    "verified": "2026-11-19"
+  },
+  {
+    "id": "noon-egy-h28",
+    "store": "noon-egypt",
+    "code": "H28",
+    "title": "كود خصم نون مصر",
+    "description": "كود إضافي لنون مصر.",
+    "expiry": "2026-12-31",
+    "verified": "2026-11-19"
+  },
+  {
+    "id": "noon-egy-jdf",
+    "store": "noon-egypt",
+    "code": "JDF",
+    "title": "كود خصم نون مصر",
+    "description": "كود إضافي لنون مصر.",
+    "expiry": "2026-12-31",
+    "verified": "2026-11-19"
+  },
+  {
+    "id": "noon-egy-klp",
+    "store": "noon-egypt",
+    "code": "KLP",
+    "title": "كود خصم نون مصر",
+    "description": "كود إضافي لنون مصر.",
+    "expiry": "2026-12-31",
+    "verified": "2026-11-19"
+  },
+  {
+    "id": "noon-egy-xff10",
+    "store": "noon-egypt",
+    "code": "XFF10",
+    "title": "كود خصم نون مصر",
+    "description": "كود إضافي لنون مصر.",
+    "expiry": "2026-12-31",
+    "verified": "2026-11-19"
+  },
+  {
+    "id": "noon-egy-rz700",
+    "store": "noon-egypt",
+    "code": "RZ700",
+    "title": "كود خصم نون مصر",
+    "description": "كود إضافي لنون مصر.",
+    "expiry": "2026-12-31",
+    "verified": "2026-11-19"
+  },
+  {
+    "id": "noon-ksa-uae-zv148",
+    "store": "noon-ksa-uae",
+    "code": "ZV148",
+    "title": "كود خصم نون السعودية والإمارات",
+    "description": "للاستخدام في نون السعودية والإمارات.",
+    "expiry": "2026-12-31",
+    "verified": "2026-11-19"
+  },
+  {
+    "id": "noon-ksa-uae-krr143",
+    "store": "noon-ksa-uae",
+    "code": "KRR143",
+    "title": "كود خصم نون السعودية والإمارات",
+    "description": "للاستخدام في نون السعودية والإمارات.",
+    "expiry": "2026-12-31",
+    "verified": "2026-11-19"
+  },
+  {
+    "id": "noon-all-zv124",
+    "store": "noon-ksa-uae",
+    "code": "ZV124",
+    "title": "كود خصم نون (السعودية / الإمارات / مصر)",
+    "description": "حسب جدولك: يعمل في أكثر من دولة. تأكد من الدولة قبل النشر.",
+    "expiry": "2026-12-31",
+    "verified": "2026-11-19"
+  },
+  {
+    "id": "noon-gcc-xff11",
+    "store": "noon-gcc",
+    "code": "XFF11",
+    "title": "كود خصم نون الخليج",
+    "description": "للاستخدام في نون الخليج.",
+    "expiry": "2026-12-31",
+    "verified": "2026-11-19"
+  },
+  {
+    "id": "noon-gcc-mp88",
+    "store": "noon-gcc",
+    "code": "MP88",
+    "title": "كود خصم نون الخليج",
+    "description": "للاستخدام في نون الخليج.",
+    "expiry": "2026-12-31",
+    "verified": "2026-11-19"
+  },
+  {
+    "id": "defacto-d57",
+    "store": "defacto",
+    "code": "D57",
+    "title": "كود خصم ديفاكتو",
+    "description": "استخدم الكود عند الدفع في Defacto.",
+    "expiry": "2026-12-31",
+    "verified": "2026-11-19"
+  },
+  {
+    "id": "namshi-acc20",
+    "store": "namshi",
+    "code": "ACC20",
+    "title": "كود خصم نمشي",
+    "description": "استخدم الكود عند الدفع في نمشي Namshi.",
+    "expiry": "2026-12-31",
+    "verified": "2026-11-19"
+  },
+  {
+    "id": "mumzworld-pse298",
+    "store": "mumzworld",
+    "code": "PSE298",
+    "title": "كود خصم ممزورلد",
+    "description": "استخدم الكود عند الدفع في Mumzworld.",
+    "expiry": "2026-12-31",
+    "verified": "2026-11-19"
+  }
+]
