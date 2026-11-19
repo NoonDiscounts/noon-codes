@@ -1,17 +1,17 @@
 /* ====== المتاجر ======
    links: استبدلها بروابط الأفلييت الخاصة بك. about: نبذة قصيرة. */
 const STORES = {
-  "noon-egypt":   { name: "نون مصر", color: "#b8860b", about: "منصة تسوق إلكتروني متاحة في مصر، تضم الإلكترونيات والموضة والمنزل والمزيد.",
+  "noon-egypt":   { name: "نون مصر", color: "#a16207", about: "منصة تسوق إلكتروني متاحة في مصر، تضم الإلكترونيات والموضة والمنزل والمزيد.",
     links: [{ label: "نون مصر", url: "https://www.noon.com/egypt-ar/" }] },
-  "noon-ksa-uae": { name: "نون السعودية والإمارات", color: "#a37900", about: "نون في السعودية والإمارات. اختر الدولة الصحيحة قبل استخدام الكود.",
+  "noon-ksa-uae": { name: "نون السعودية والإمارات", color: "#a16207", about: "نون في السعودية والإمارات. اختر الدولة الصحيحة قبل استخدام الكود.",
     links: [{ label: "نون السعودية", url: "https://www.noon.com/saudi-ar/" }, { label: "نون الإمارات", url: "https://www.noon.com/uae-ar/" }] },
-  "noon-gcc":     { name: "نون الخليج", color: "#8f6a00", about: "أكواد مخصصة لمتجر نون في دول الخليج.",
+  "noon-gcc":     { name: "نون الخليج", color: "#a16207", about: "أكواد مخصصة لمتجر نون في دول الخليج.",
     links: [{ label: "نون الإمارات", url: "https://www.noon.com/uae-ar/" }] },
   "defacto":      { name: "ديفاكتو", color: "#0f4c81", about: "علامة أزياء تقدم ملابس للرجال والنساء والأطفال.",
     links: [{ label: "ديفاكتو", url: "https://www.defacto.com.eg/ar-eg" }] },
-  "namshi":       { name: "نمشي", color: "#b3123b", about: "متجر إلكتروني للأزياء والجمال والأحذية في المنطقة.",
+  "namshi":       { name: "نمشي", color: "#a3173a", about: "متجر إلكتروني للأزياء والجمال والأحذية في المنطقة.",
     links: [{ label: "نمشي", url: "https://www.namshi.com/" }] },
-  "mumzworld":    { name: "ممزورلد", color: "#d63a74", about: "متجر متخصص في مستلزمات الأمهات والأطفال.",
+  "mumzworld":    { name: "ممزورلد", color: "#be3a6e", about: "متجر متخصص في مستلزمات الأمهات والأطفال.",
     links: [{ label: "ممزورلد", url: "https://www.mumzworld.com/ar" }] }
 };
 
@@ -102,14 +102,13 @@ function render() {
     const exp = c.expiry ? (soon ? `ينتهي خلال ${left} يوم` : `ينتهي: ${fmtDate(c.expiry)}`) : "";
     const el = document.createElement("article");
     el.className = "coupon" + (c.featured ? " featured" : "");
-    el.style.setProperty("--store", s?.color || "#5b21b6");
+    el.style.setProperty("--store", s?.color || "#1d4ed8");
     el.innerHTML = `
       <div class="c-side"><span class="c-val">${esc(c.discount || "كود")}</span><span class="c-lbl">${c.discount ? "خصم" : "خصم"}</span></div>
       <div class="c-body">
         <div class="c-meta">
           <span class="badge">${esc(s?.name || c.store)}</span>
           ${exp ? `<span class="expiry${soon ? " soon" : ""}">${esc(exp)}</span>` : ""}
-          ${c.verified ? `<span class="verified">✓ تم التحقق ${esc(fmtDate(c.verified))}</span>` : ""}
         </div>
         <h3>${esc(c.title)}</h3>
         <p>${esc(c.description)}${c.terms ? ` <span class="muted">(${esc(c.terms)})</span>` : ""}</p>
