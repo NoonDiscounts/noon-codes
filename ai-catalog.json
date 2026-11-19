@@ -1,0 +1,19 @@
+{
+  "specVersion": "0.1",
+  "host": { "name": "توفير هب - Tawfeer Hub", "url": "https://noondiscounts.github.io/noon-codes/" },
+  "entries": [
+    {
+      "identifier": "urn:air:noondiscounts.github.io:data:coupon-codes",
+      "displayName": "أكواد خصم نون وديفاكتو ونمشي وممزورلد",
+      "type": "application/json",
+      "url": "https://noondiscounts.github.io/noon-codes/codes.json",
+      "representativeQueries": [
+        "كود خصم نون مصر",
+        "أكواد خصم نمشي",
+        "كود خصم ديفاكتو شغال",
+        "كوبون ممزورلد",
+        "أكواد خصم نون السعودية والإمارات"
+      ]
+    }
+  ]
+}

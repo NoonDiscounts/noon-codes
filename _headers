@@ -1,7 +1,9 @@
-# يعمل على Cloudflare Pages / Netlify (مش GitHub Pages)
 /*
-  Link: </sitemap.xml>; rel="sitemap"
+  Link: </sitemap.xml>; rel="sitemap", </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
-/robots.txt
-  Content-Type: text/plain; charset=utf-8
+/.well-known/api-catalog
+  Content-Type: application/linkset+json
+/.well-known/ai-catalog.json
+  Content-Type: application/json
+  Access-Control-Allow-Origin: *
