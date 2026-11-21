@@ -1,0 +1,86 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Tawfeer Hub Coupons API",
+    "version": "1.0.0",
+    "description": "Active discount codes for Noon Egypt, Noon KSA/UAE, Defacto, Namshi and Mumzworld",
+    "contact": {
+      "url": "https://noondiscounts.github.io/noon-codes/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://noondiscounts.github.io/noon-codes/"
+    }
+  ],
+  "paths": {
+    "/codes.json": {
+      "get": {
+        "summary": "List coupon codes",
+        "operationId": "listCoupons",
+        "responses": {
+          "200": {
+            "description": "Array of coupon codes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Coupon"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Coupon": {
+        "type": "object",
+        "required": [
+          "id",
+          "store",
+          "code"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "noon-egy-rz46"
+          },
+          "store": {
+            "type": "string",
+            "enum": [
+              "noon-egypt",
+              "noon-ksa-uae",
+              "noon-gcc",
+              "defacto",
+              "namshi",
+              "mumzworld"
+            ]
+          },
+          "code": {
+            "type": "string",
+            "example": "RZ46"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "expiry": {
+            "type": "string",
+            "format": "date"
+          },
+          "verified": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      }
+    }
+  }
+}
