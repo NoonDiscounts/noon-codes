@@ -148,3 +148,10 @@ details p{margin:0;padding:12px 16px}
 @media (max-width:360px){.brand small{display:none}.search-row{flex-direction:column}.search-row button{min-height:44px}}
 @media (hover:none){.store-card:hover{box-shadow:none}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+/* زر واتساب العائم */
+.wa-float{position:fixed;left:max(16px,env(safe-area-inset-left));bottom:calc(18px + env(safe-area-inset-bottom));width:58px;height:58px;border-radius:50%;background:#25d366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px -4px rgba(0,0,0,.45);z-index:55;transition:transform .15s,box-shadow .15s}
+.wa-float:hover{transform:scale(1.08);box-shadow:0 8px 22px -4px rgba(0,0,0,.55);background:#1ebe5b}
+.wa-float::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #25d366;animation:waPulse 2.2s infinite;pointer-events:none}
+@keyframes waPulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.5);opacity:0}}
+@media (prefers-reduced-motion:reduce){.wa-float::after{animation:none}}
