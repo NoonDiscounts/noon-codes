@@ -1,1 +1,25 @@
-
+{
+  "serverInfo": {
+    "name": "tawfeer-hub-coupons",
+    "version": "1.0.0",
+    "description": "Tawfeer Hub coupon codes - Noon Egypt, Noon KSA/UAE, Defacto, Namshi, Mumzworld",
+    "websiteUrl": "https://noondiscounts.github.io/noon-codes/"
+  },
+  "endpoint": "https://noondiscounts.github.io/noon-codes/mcp",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "get-coupon-codes",
+        "description": "Get active discount codes from codes.json"
+      }
+    ],
+    "resources": [
+      {
+        "uri": "https://noondiscounts.github.io/noon-codes/codes.json",
+        "name": "coupon-codes",
+        "mimeType": "application/json"
+      }
+    ],
+    "prompts": []
+  }
+}
