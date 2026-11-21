@@ -6,7 +6,7 @@
       "type": "coupon-codes",
       "description": "Get active discount codes for Noon Egypt, Noon KSA/UAE, Defacto, Namshi and Mumzworld",
       "url": "https://noondiscounts.github.io/noon-codes/codes.json",
-      "sha256": "placeholder-update-after-deploy"
+      "sha256": "1cd9a287b9fd8a3aa28725d86efcd1cc6d23a72e789b779df4001b11848a9f39"
     }
   ]
 }
