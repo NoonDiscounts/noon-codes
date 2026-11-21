@@ -1,12 +1,12 @@
 {
-  "$schema": "https://agentskills.io/discovery-rfc-0.2.0/schema.json",
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
   "skills": [
     {
       "name": "tawfeer-coupons",
-      "type": "coupon-codes",
+      "type": "skill-md",
       "description": "Get active discount codes for Noon Egypt, Noon KSA/UAE, Defacto, Namshi and Mumzworld",
-      "url": "https://noondiscounts.github.io/noon-codes/codes.json",
-      "sha256": "1cd9a287b9fd8a3aa28725d86efcd1cc6d23a72e789b779df4001b11848a9f39"
+      "url": "https://noondiscounts.github.io/noon-codes/.well-known/agent-skills/tawfeer-coupons/SKILL.md",
+      "digest": "sha256:9f5dad37142dd3feb14e1215524b6e35705c157231b301da681314d691a43c67"
     }
   ]
 }
