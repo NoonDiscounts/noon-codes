@@ -100,7 +100,7 @@ details p{margin:0;padding:12px 16px}
 
 .site-footer{background:#0b1226;color:#cbd5e1;padding:clamp(28px,4vw,40px) 0 calc(22px + env(safe-area-inset-bottom))}
 .site-footer a{color:#cbd5e1;text-decoration:none}.site-footer a:hover{text-decoration:underline}
-.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.4fr;gap:24px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr 1.4fr;gap:24px}
 .foot-brand{display:flex;align-items:center;gap:10px;color:#fff;font-size:20px;font-weight:700;margin-bottom:8px}
 .foot-brand img{width:38px;height:38px;border-radius:10px}
 .site-footer h4{margin:0 0 8px;color:#fff}
@@ -117,6 +117,11 @@ details p{margin:0;padding:12px 16px}
 /* لابتوب صغير / تابلت أفقي */
 @media (max-width:1024px){.layout{grid-template-columns:minmax(0,1fr) 280px}}
 /* تابلت */
+.social{display:flex;flex-wrap:wrap;gap:10px}
+.social a{width:42px;height:42px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:#16213f;color:#fff;transition:background .15s,transform .15s}
+.social a:hover{background:var(--accent);color:#0b1226;text-decoration:none;transform:translateY(-2px)}
+.wa{margin:10px 0 0;font-size:14px}
+@media (max-width:1100px){.foot-grid{grid-template-columns:1fr 1fr 1fr}}
 @media (max-width:900px){
   .layout{grid-template-columns:1fr}
   .side-col{position:static;display:grid;grid-template-columns:1fr 1fr;gap:16px}

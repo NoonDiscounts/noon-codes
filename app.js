@@ -98,9 +98,8 @@ function render() {
   box.innerHTML = "";
   if (!list.length) box.innerHTML = `<p class="empty">لا توجد نتائج. جرّب كلمة أخرى أو اختر «الكل».</p>`;
   list.forEach((c, i) => {
-    const s = STORES[c.store], left = c.expiry ? daysLeft(c.expiry) : null, soon = left !== null && left <= 7;
-    const exp = c.expiry ? (soon ? `ينتهي خلال ${left} يوم` : `ينتهي: ${fmtDate(c.expiry)}`) : "";
-    const el = document.createElement("article");
+    const s = STORES[c.store];
+        const el = document.createElement("article");
     el.className = "coupon" + (c.featured ? " featured" : "");
     el.style.setProperty("--store", s?.color || "#1d4ed8");
     el.innerHTML = `
@@ -108,7 +107,6 @@ function render() {
       <div class="c-body">
         <div class="c-meta">
           <span class="badge">${esc(s?.name || c.store)}</span>
-          ${exp ? `<span class="expiry${soon ? " soon" : ""}">${esc(exp)}</span>` : ""}
         </div>
         <h3>${esc(c.title)}</h3>
         <p>${esc(c.description)}${c.terms ? ` <span class="muted">(${esc(c.terms)})</span>` : ""}</p>
@@ -124,7 +122,7 @@ function render() {
   });
   // جدول الملخص
   $("summaryBox").hidden = !list.length;
-  $("summaryBody").innerHTML = list.map(c => `<tr><td class="mono">${esc(c.code)}</td><td>${esc(STORES[c.store]?.name || c.store)}</td><td>${esc(c.discount || "—")}</td><td>${c.expiry ? esc(fmtDate(c.expiry)) : "—"}</td></tr>`).join("");
+  $("summaryBody").innerHTML = list.map(c => `<tr><td class="mono">${esc(c.code)}</td><td>${esc(STORES[c.store]?.name || c.store)}</td><td>${esc(c.discount || "—")}</td></tr>`).join("");
 }
 
 function copyCode(code, prefix = "تم نسخ الكود: ") {
@@ -154,7 +152,7 @@ function registerWebMCP() {
         query: { type: "string", description: "كلمة بحث اختيارية" },
         store: { type: "string", enum: ["all", ...Object.keys(STORES)], description: "معرّف المتجر" } } },
       async execute({ query: q = "", store = "all" } = {}) {
-        const out = filtered(q, store).map(c => ({ code: c.code, store: STORES[c.store]?.name, expiry: c.expiry, url: linksOf(c)[0]?.url }));
+        const out = filtered(q, store).map(c => ({ code: c.code, store: STORES[c.store]?.name, url: linksOf(c)[0]?.url }));
         return { content: [{ type: "text", text: JSON.stringify(out) }] };
       }
     });
