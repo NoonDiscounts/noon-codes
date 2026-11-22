@@ -20,4 +20,4 @@ Disallow: /
 User-agent: Google-Extended
 Disallow: /
 
-Sitemap: https://noondiscounts.github.io/noon-codes/sitemap.xml
+Sitemap: https://noon-codes.com/sitemap.xml

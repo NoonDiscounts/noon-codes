@@ -1,8 +1,8 @@
 # توفير هب — أكواد خصم نون وديفاكتو ونمشي وممزورلد
 
 آخر تحديث: 2026-11-19
-الموقع: https://noondiscounts.github.io/noon-codes/
-البيانات (JSON): https://noondiscounts.github.io/noon-codes/codes.json
+الموقع: https://noon-codes.com/
+البيانات (JSON): https://noon-codes.com/codes.json
 
 ## نون مصر
 

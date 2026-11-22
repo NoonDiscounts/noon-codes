@@ -5,12 +5,12 @@
     "version": "1.0.0",
     "description": "Active discount codes for Noon Egypt, Noon KSA/UAE, Defacto, Namshi and Mumzworld",
     "contact": {
-      "url": "https://noondiscounts.github.io/noon-codes/"
+      "url": "https://noon-codes.com/"
     }
   },
   "servers": [
     {
-      "url": "https://noondiscounts.github.io/noon-codes/"
+      "url": "https://noon-codes.com/"
     }
   ],
   "paths": {

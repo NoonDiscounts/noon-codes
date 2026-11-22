@@ -32,6 +32,14 @@ async function handleMcp(request, env, url) {
   }
 }
 
+const LINK = [
+  '</sitemap.xml>; rel="sitemap"',
+  '</.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"',
+  '</openapi.json>; rel="service-desc"; type="application/openapi+json"',
+  '</index.md>; rel="service-doc"; type="text/markdown"',
+  '</index.md>; rel="alternate"; type="text/markdown"'
+].join(", ");
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -42,12 +50,13 @@ export default {
       const md = await env.ASSETS.fetch(new URL("/index.md", url));
       const body = await md.text();
       return new Response(body, { headers: {
-        "Content-Type": "text/markdown; charset=utf-8", "Vary": "Accept",
+        "Content-Type": "text/markdown; charset=utf-8", "Vary": "Accept", "Link": LINK,
         "x-markdown-tokens": String(Math.ceil(body.length / 4)) } });
     }
     const res = await env.ASSETS.fetch(request);
     const out = new Response(res.body, res);
     out.headers.append("Vary", "Accept");
+    if (isRoot) out.headers.set("Link", LINK);
     return out;
   }
 };
