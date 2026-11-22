@@ -37,7 +37,7 @@ async function loadCodes() {
   if (p.get("q")) { query = p.get("q"); $("q").value = query; }
   if (STORES[p.get("store")]) activeStore = p.get("store");
   renderStoreGrids();
-  renderHeroTicket();
+  try { renderHeroTicket(); } catch (_) {}
   setStore(activeStore, false);
   registerWebMCP();
 }
@@ -87,12 +87,12 @@ function storeButtons(c) {
   const l = linksOf(c);
   return l.map(x => {
     const t = l.length > 1 ? `اذهب إلى ${x.label}` : "اذهب إلى المتجر";
-    return `<a class="btn btn-store" href="${esc(x.url)}" target="_blank" rel="noopener noreferrer sponsored" aria-label="${esc(t)} (يفتح في نافذة جديدة)"><svg class="ic"><use href="#i-cart"/></svg>${esc(t)}</a>`;
+    return `<a class="btn btn-store" href="${esc(x.url)}" target="_blank" rel="noopener noreferrer sponsored" aria-label="${esc(t)} (يفتح في نافذة جديدة)"><svg class="ic" width="20" height="20"><use href="#i-cart"/></svg>${esc(t)}</a>`;
   }).join("");
 }
 
 function cardHTML(c, s) {
-  const ver = c.verified ? `<span class="ver"><svg class="ic"><use href="#i-check"/></svg>تم التحقق ${esc(fmtDate(c.verified))}</span>` : "";
+  const ver = c.verified ? `<span class="ver"><svg class="ic" width="20" height="20"><use href="#i-check"/></svg>تم التحقق ${esc(fmtDate(c.verified))}</span>` : "";
   return `
     <i class="ava" aria-hidden="true">${esc((s?.name || c.store)[0])}</i>
     <div class="c-body">
@@ -115,7 +115,7 @@ function renderHeroTicket() {
   if (!c) { box.hidden = true; return; }
   const s = STORES[c.store];
   box.style.setProperty("--store", s?.color || "#a16207");
-  box.innerHTML = `<p class="t-top">أحدث كود ${esc(s?.name || "")}</p><div class="code-box"><span class="code">${esc(c.code)}</span><button class="btn-copy" type="button">نسخ</button></div>${c.verified ? `<p class="ver"><svg class="ic"><use href="#i-check"/></svg>تم التحقق ${esc(fmtDate(c.verified))}</p>` : ""}${storeButtons(c)}`;
+  box.innerHTML = `<p class="t-top">أحدث كود ${esc(s?.name || "")}</p><div class="code-box"><span class="code">${esc(c.code)}</span><button class="btn-copy" type="button">نسخ</button></div>${c.verified ? `<p class="ver"><svg class="ic" width="20" height="20"><use href="#i-check"/></svg>تم التحقق ${esc(fmtDate(c.verified))}</p>` : ""}${storeButtons(c)}`;
   wireCard(box, c);
 }
 function render() {
