@@ -71,10 +71,6 @@
           "description": {
             "type": "string"
           },
-          "expiry": {
-            "type": "string",
-            "format": "date"
-          },
           "verified": {
             "type": "string",
             "format": "date"

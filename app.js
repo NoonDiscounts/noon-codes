@@ -37,16 +37,17 @@ async function loadCodes() {
   if (p.get("q")) { query = p.get("q"); $("q").value = query; }
   if (STORES[p.get("store")]) activeStore = p.get("store");
   renderStoreGrids();
+  renderHeroTicket();
   setStore(activeStore, false);
   registerWebMCP();
 }
 
-function storeCard(slug, goTop) {
+function storeCard(slug) {
   const s = STORES[slug], n = allCodes.filter(c => c.store === slug).length;
   const b = document.createElement("button");
   b.className = "store-card"; b.type = "button";
   b.style.setProperty("--store", s.color);
-  b.innerHTML = `<strong>${esc(s.name)}</strong><span>${n} كود</span>`;
+  b.innerHTML = `<i class="ava" aria-hidden="true">${esc(s.name[0])}</i><span><strong>${esc(s.name)}</strong><small>${n} كود</small></span>`;
   b.addEventListener("click", () => { setStore(slug); $("codes").scrollIntoView({ behavior: "smooth" }); });
   return b;
 }
@@ -69,8 +70,6 @@ function setStore(slug, scrollSync = true) {
   $("aboutText").textContent = s ? s.about : "اختر متجرًا من القائمة لعرض معلومات سريعة عنه.";
   const a = $("aboutLink");
   if (s) { a.hidden = false; a.href = s.links[0].url; a.style.setProperty("--store", s.color); } else a.hidden = true;
-  // المتاجر المشابهة: كل المتاجر عدا الحالي
-  $("similarGrid").replaceChildren(...Object.keys(STORES).filter(k => k !== slug).slice(0, 5).map(storeCard));
   render();
 }
 
@@ -88,39 +87,50 @@ function storeButtons(c) {
   const l = linksOf(c);
   return l.map(x => {
     const t = l.length > 1 ? `اذهب إلى ${x.label}` : "اذهب إلى المتجر";
-    return `<a class="btn btn-store" href="${esc(x.url)}" target="_blank" rel="noopener noreferrer sponsored" aria-label="${esc(t)} (يفتح في نافذة جديدة)">🛒 ${esc(t)}</a>`;
+    return `<a class="btn btn-store" href="${esc(x.url)}" target="_blank" rel="noopener noreferrer sponsored" aria-label="${esc(t)} (يفتح في نافذة جديدة)"><svg class="ic"><use href="#i-cart"/></svg>${esc(t)}</a>`;
   }).join("");
 }
 
+function cardHTML(c, s) {
+  const ver = c.verified ? `<span class="ver"><svg class="ic"><use href="#i-check"/></svg>تم التحقق ${esc(fmtDate(c.verified))}</span>` : "";
+  return `
+    <i class="ava" aria-hidden="true">${esc((s?.name || c.store)[0])}</i>
+    <div class="c-body">
+      <div class="c-meta"><span class="badge">${esc(s?.name || c.store)}</span>${ver}</div>
+      <h3>${esc(c.title)}</h3>
+      <p>${esc(c.description)}${c.terms ? ` <span class="muted">(${esc(c.terms)})</span>` : ""}</p>
+    </div>
+    <div class="c-actions">
+      <div class="code-box"><span class="code" aria-label="الكود ${esc(c.code)}">${esc(c.code)}</span><button class="btn-copy" type="button">نسخ</button></div>
+      ${storeButtons(c)}
+    </div>`;
+}
+function wireCard(el, c) {
+  const cp = el.querySelector(".btn-copy");
+  cp.addEventListener("click", () => { copyCode(c.code); cp.textContent = "تم ✓"; setTimeout(() => cp.textContent = "نسخ", 1800); });
+  el.querySelectorAll(".btn-store").forEach(a => a.addEventListener("click", () => copyCode(c.code, "تم نسخ الكود وفتح المتجر: ")));
+}
+function renderHeroTicket() {
+  const c = allCodes.find(x => x.store === "noon-egypt") || allCodes[0], box = $("heroTicket");
+  if (!c) { box.hidden = true; return; }
+  const s = STORES[c.store];
+  box.style.setProperty("--store", s?.color || "#a16207");
+  box.innerHTML = `<p class="t-top">أحدث كود ${esc(s?.name || "")}</p><div class="code-box"><span class="code">${esc(c.code)}</span><button class="btn-copy" type="button">نسخ</button></div>${c.verified ? `<p class="ver"><svg class="ic"><use href="#i-check"/></svg>تم التحقق ${esc(fmtDate(c.verified))}</p>` : ""}${storeButtons(c)}`;
+  wireCard(box, c);
+}
 function render() {
   const list = filtered(), box = $("cards");
   $("resultCount").textContent = `عدد الأكواد المعروضة: ${list.length}`;
   box.innerHTML = "";
   if (!list.length) box.innerHTML = `<p class="empty">لا توجد نتائج. جرّب كلمة أخرى أو اختر «الكل».</p>`;
-  list.forEach((c, i) => {
-    const s = STORES[c.store];
-        const el = document.createElement("article");
+  list.forEach(c => {
+    const s = STORES[c.store], el = document.createElement("article");
     el.className = "coupon" + (c.featured ? " featured" : "");
     el.style.setProperty("--store", s?.color || "#1d4ed8");
-    el.innerHTML = `
-      <div class="c-side"><span class="c-val">${esc(c.discount || "كود")}</span><span class="c-lbl">${c.discount ? "خصم" : "خصم"}</span></div>
-      <div class="c-body">
-        <div class="c-meta">
-          <span class="badge">${esc(s?.name || c.store)}</span>
-        </div>
-        <h3>${esc(c.title)}</h3>
-        <p>${esc(c.description)}${c.terms ? ` <span class="muted">(${esc(c.terms)})</span>` : ""}</p>
-        <div class="c-actions">
-          <div class="code-box"><span class="code" aria-label="الكود ${esc(c.code)}">${esc(c.code)}</span><button class="btn-copy" type="button">نسخ</button></div>
-          ${storeButtons(c)}
-        </div>
-      </div>`;
-    const cp = el.querySelector(".btn-copy");
-    cp.addEventListener("click", () => { copyCode(c.code); cp.textContent = "تم ✓"; setTimeout(() => cp.textContent = "نسخ", 1800); });
-    el.querySelectorAll(".btn-store").forEach(a => a.addEventListener("click", () => copyCode(c.code, "تم نسخ الكود وفتح المتجر: ")));
+    el.innerHTML = cardHTML(c, s);
+    wireCard(el, c);
     box.appendChild(el);
   });
-  // جدول الملخص
   $("summaryBox").hidden = !list.length;
   $("summaryBody").innerHTML = list.map(c => `<tr><td class="mono">${esc(c.code)}</td><td>${esc(STORES[c.store]?.name || c.store)}</td><td>${esc(c.discount || "—")}</td></tr>`).join("");
 }

@@ -2,7 +2,7 @@
 
 No login required. All coupon data in codes.json is public and read-only.
 
-- Public data: codes.json (code, store, title, expiry)
+- Public data: codes.json (code, store, title, description, verified)
 - Docs: openapi.json (OpenAPI 3.1), #faq in index.html
 - No OAuth / OIDC on this static site.
 - If protected APIs are added later, publish:
