@@ -1,5 +1,7 @@
 /* ====== المتاجر ======
    links: استبدلها بروابط الأفلييت الخاصة بك. about: نبذة قصيرة. */
+const LOGOS = {"noon-egypt": "logos/noon.png", "noon-ksa-uae": "logos/noon.png", "noon-gcc": "logos/noon.png", "defacto": "logos/defacto.svg", "namshi": "logos/namshi.svg", "mumzworld": "logos/mumzworld.svg"};
+const logoImg = (slug, cls = "ava") => `<img class="${cls}" src="${LOGOS[slug] || "logo.svg"}" alt="" width="48" height="48" loading="lazy" decoding="async">`;
 const STORES = {
   "noon-egypt":   { name: "نون مصر", color: "#a16207", about: "منصة تسوق إلكتروني متاحة في مصر، تضم الإلكترونيات والموضة والمنزل والمزيد.",
     links: [{ label: "نون مصر", url: "https://www.noon.com/egypt-ar/" }] },
@@ -47,7 +49,7 @@ function storeCard(slug) {
   const b = document.createElement("button");
   b.className = "store-card"; b.type = "button";
   b.style.setProperty("--store", s.color);
-  b.innerHTML = `<i class="ava" aria-hidden="true">${esc(s.name[0])}</i><span><strong>${esc(s.name)}</strong><small>${n} كود</small></span>`;
+  b.innerHTML = `${logoImg(slug)}<span><strong>${esc(s.name)}</strong><small>${n} كود</small></span>`;
   b.addEventListener("click", () => { setStore(slug); $("codes").scrollIntoView({ behavior: "smooth" }); });
   return b;
 }
@@ -64,7 +66,7 @@ function setStore(slug, scrollSync = true) {
   });
   const s = STORES[slug];
   $("codesTitle").textContent = s ? `أكواد خصم ${s.name}` : "كل أكواد الخصم";
-  document.title = s ? `أكواد خصم ${s.name} 2026 | توفير هب` : "توفير هب | أكواد خصم نون مصر وديفاكتو ونمشي وممزورلد نوفمبر 2026";
+  document.title = s ? `أكواد خصم ${s.name} 2026 | توفير هب` : "توفير هب | أكواد خصم نون مصر وديفاكتو ونمشي وممزورلد";
   $("pageTitle").textContent = s ? `أكواد خصم ${s.name}` : "أكواد خصم نون وديفاكتو ونمشي وممزورلد";
   $("aboutTitle").textContent = s ? `عن ${s.name}` : "عن المتاجر";
   $("aboutText").textContent = s ? s.about : "اختر متجرًا من القائمة لعرض معلومات سريعة عنه.";
@@ -92,9 +94,9 @@ function storeButtons(c) {
 }
 
 function cardHTML(c, s) {
-  const ver = c.verified ? `<span class="ver"><svg class="ic" width="20" height="20"><use href="#i-check"/></svg>تم التحقق ${esc(fmtDate(c.verified))}</span>` : "";
+  const ver = c.verified ? `<span class="ver"><svg class="ic" width="20" height="20"><use href="#i-check"/></svg>تم التحقق</span>` : "";
   return `
-    <i class="ava" aria-hidden="true">${esc((s?.name || c.store)[0])}</i>
+    ${logoImg(c.store)}
     <div class="c-body">
       <div class="c-meta"><span class="badge">${esc(s?.name || c.store)}</span>${ver}</div>
       <h3>${esc(c.title)}</h3>
@@ -115,7 +117,7 @@ function renderHeroTicket() {
   if (!c) { box.hidden = true; return; }
   const s = STORES[c.store];
   box.style.setProperty("--store", s?.color || "#a16207");
-  box.innerHTML = `<p class="t-top">أحدث كود ${esc(s?.name || "")}</p><div class="code-box"><span class="code">${esc(c.code)}</span><button class="btn-copy" type="button">نسخ</button></div>${c.verified ? `<p class="ver"><svg class="ic" width="20" height="20"><use href="#i-check"/></svg>تم التحقق ${esc(fmtDate(c.verified))}</p>` : ""}${storeButtons(c)}`;
+  box.innerHTML = `<p class="t-top">${logoImg(c.store)}<span>أحدث كود ${esc(s?.name || "")}</span></p><div class="code-box"><span class="code">${esc(c.code)}</span><button class="btn-copy" type="button">نسخ</button></div>${c.verified ? `<p class="ver"><svg class="ic" width="20" height="20"><use href="#i-check"/></svg>تم التحقق</p>` : ""}${storeButtons(c)}`;
   wireCard(box, c);
 }
 function render() {

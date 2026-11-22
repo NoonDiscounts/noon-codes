@@ -5,7 +5,8 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
-body{margin:0;font-family:"IBM Plex Sans Arabic","Segoe UI",Tahoma,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.85;font-size:clamp(15px,1.6vw,16.5px);-webkit-font-smoothing:antialiased}
+html,body{max-width:100%}
+body{overflow-x:clip;margin:0;font-family:"IBM Plex Sans Arabic","Segoe UI",Tahoma,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.85;font-size:clamp(15px,1.6vw,16.5px);-webkit-font-smoothing:antialiased}
 img{max-width:100%;height:auto}
 a{color:var(--brand)}
 .ic{width:1.2em;height:1.2em;flex:none;vertical-align:-.2em}
@@ -55,7 +56,7 @@ nav a:hover{background:#eef2fb;color:var(--navy)}
 .ticket{position:relative;background:#fff;color:var(--ink);border-radius:24px;padding:22px 22px 20px;display:flex;flex-direction:column;gap:12px;box-shadow:0 26px 50px -24px rgba(0,0,0,.65);transform:rotate(-1.5deg)}
 .ticket::before,.ticket::after{content:"";position:absolute;top:58px;width:22px;height:22px;border-radius:50%;background:#1a3ea6}
 .ticket::before{inset-inline-start:-11px}.ticket::after{inset-inline-end:-11px}
-.t-top{margin:0 0 10px;padding-bottom:14px;border-bottom:2px dashed var(--line);font-weight:700;color:var(--navy);font-size:17px}
+.t-top{display:flex;align-items:center;gap:12px;margin:0 0 10px;padding-bottom:14px;border-bottom:2px dashed var(--line);font-weight:700;color:var(--navy);font-size:17px}
 .ticket .ver{margin:0}
 .ticket .btn{width:100%}
 
@@ -79,7 +80,7 @@ nav a:hover{background:#eef2fb;color:var(--navy)}
 .store-card:hover{border-color:var(--store);box-shadow:0 10px 22px -16px var(--store)}
 .store-card strong{display:block;line-height:1.4}
 .store-card small{color:var(--muted);font-size:13px}
-.ava{width:44px;height:44px;flex:none;border-radius:50%;background:var(--store);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-style:normal;font-weight:700;font-size:19px}
+.ava{width:48px;height:48px;flex:none;border-radius:12px;object-fit:contain;background:#fff;border:1px solid var(--line);display:block}
 
 .layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:clamp(18px,3vw,32px);align-items:start}
 .main-col,.side-col{min-width:0}
@@ -170,12 +171,12 @@ details p{margin:0;padding:12px 18px 16px;color:#334155}
 @media (max-width:1100px){.foot-grid{grid-template-columns:1fr 1fr 1fr}.head-cta{display:none}}
 @media (max-width:1024px){.layout{grid-template-columns:minmax(0,1fr) 280px}.coupon{grid-template-columns:auto minmax(0,1fr)}.c-actions{grid-column:1/-1;flex-direction:row;flex-wrap:wrap}.c-actions>*{flex:1 1 220px}}
 @media (max-width:900px){
-  .hero-grid{grid-template-columns:1fr}
+  .hero-grid{grid-template-columns:minmax(0,1fr)}
   .ticket{transform:none;max-width:420px}
   .trust-strip ul{grid-template-columns:1fr 1fr}
   .steps{grid-template-columns:1fr 1fr}.steps li::after{display:none}
-  .trust-grid{grid-template-columns:1fr}
-  .layout{grid-template-columns:1fr}
+  .trust-grid{grid-template-columns:minmax(0,1fr)}
+  .layout{grid-template-columns:minmax(0,1fr)}
   .side-col{position:static;display:grid;grid-template-columns:1fr 1fr;gap:16px}
   .side-col .box{margin-top:0}
   .foot-grid{grid-template-columns:1fr 1fr}
@@ -186,12 +187,26 @@ details p{margin:0;padding:12px 18px 16px;color:#334155}
   nav::-webkit-scrollbar{display:none}
   .filters{flex-wrap:nowrap;overflow-x:auto;width:100%;padding-bottom:6px;scrollbar-width:none}
   .filters::-webkit-scrollbar{display:none}
-  .trust-strip ul,.steps,.side-col{grid-template-columns:1fr}
+  .trust-strip ul,.steps,.side-col{grid-template-columns:minmax(0,1fr)}
   .coupon{padding:14px}
   .c-actions{flex-direction:column}
   .search-row button{padding:0 14px}
-  .foot-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:minmax(0,1fr)}
 }
 @media (max-width:360px){.brand small{display:none}}
 @media (hover:none){.store-card:hover,.coupon:hover{box-shadow:none}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}.wa-float::after{animation:none}}
+
+/* شاشات صغيرة جدًا */
+@media (max-width:480px){
+  .hero h1{font-size:26px}
+  .ticket{max-width:none;padding:18px}
+  .ava{width:42px;height:42px}
+  .coupon{grid-template-columns:auto minmax(0,1fr);gap:10px 12px}
+  .code-box .btn-copy{padding:0 16px}
+  .store-grid{grid-template-columns:1fr 1fr}
+  .store-card{padding:10px;gap:8px;min-height:60px}
+  .store-card strong{font-size:14px}
+  .side-col{gap:12px}
+}
+@media (max-width:360px){.store-grid{grid-template-columns:minmax(0,1fr)}}
