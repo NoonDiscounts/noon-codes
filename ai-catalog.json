@@ -1,12 +1,12 @@
 {
   "specVersion": "0.1",
-  "host": { "name": "توفير هب - Tawfeer Hub", "url": "https://noondiscounts.github.io/noon-codes/" },
+  "host": { "name": "توفير هب - Tawfeer Hub", "url": "https://noon-codes.com/" },
   "entries": [
     {
-      "identifier": "urn:air:noondiscounts.github.io:data:coupon-codes",
+      "identifier": "urn:air:noon-codes.com:data:coupon-codes",
       "displayName": "أكواد خصم نون وديفاكتو ونمشي وممزورلد",
       "type": "application/json",
-      "url": "https://noondiscounts.github.io/noon-codes/codes.json",
+      "url": "https://noon-codes.com/codes.json",
       "representativeQueries": [
         "كود خصم نون مصر",
         "أكواد خصم نمشي",
