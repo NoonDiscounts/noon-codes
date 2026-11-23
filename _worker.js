@@ -37,7 +37,8 @@ const LINK = [
   '</.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"',
   '</openapi.json>; rel="service-desc"; type="application/openapi+json"',
   '</index.md>; rel="service-doc"; type="text/markdown"',
-  '</index.md>; rel="alternate"; type="text/markdown"'
+  '</index.md>; rel="alternate"; type="text/markdown"',
+  '</auth.md>; rel="service-doc"; type="text/markdown"'
 ].join(", ");
 
 export default {
