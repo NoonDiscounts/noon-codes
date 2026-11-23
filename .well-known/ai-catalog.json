@@ -1,21 +1,21 @@
 {
   "specVersion": "1.0",
   "host": {
-    "displayName": "Tawfeer Hub - \u062a\u0648\u0641\u064a\u0631 \u0647\u0628",
-    "identifier": "did:web:noondiscounts.github.io"
+    "displayName": "Tawfeer Hub - توفير هب",
+    "identifier": "did:web:noon-codes.com"
   },
   "entries": [
     {
-      "identifier": "urn:air:noondiscounts.github.io:data:coupon-codes",
-      "displayName": "\u0623\u0643\u0648\u0627\u062f \u062e\u0635\u0645 \u0646\u0648\u0646 \u0648\u062f\u064a\u0641\u0627\u0643\u062a\u0648 \u0648\u0646\u0645\u0634\u064a \u0648\u0645\u0645\u0632\u0648\u0631\u0644\u062f",
+      "identifier": "urn:air:noon-codes.com:data:coupon-codes",
+      "displayName": "أكواد خصم نون وديفاكتو ونمشي وممزورلد",
       "type": "application/json",
-      "url": "https://noondiscounts.github.io/noon-codes/codes.json",
+      "url": "https://noon-codes.com/codes.json",
       "representativeQueries": [
-        "\u0643\u0648\u062f \u062e\u0635\u0645 \u0646\u0648\u0646 \u0645\u0635\u0631",
-        "\u0623\u0643\u0648\u0627\u062f \u062e\u0635\u0645 \u0646\u0645\u0634\u064a",
-        "\u0643\u0648\u062f \u062e\u0635\u0645 \u062f\u064a\u0641\u0627\u0643\u062a\u0648 \u0634\u063a\u0627\u0644",
-        "\u0643\u0648\u0628\u0648\u0646 \u0645\u0645\u0632\u0648\u0631\u0644\u062f",
-        "\u0623\u0643\u0648\u0627\u062f \u062e\u0635\u0645 \u0646\u0648\u0646 \u0627\u0644\u0633\u0639\u0648\u062f\u064a\u0629 \u0648\u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a"
+        "كود خصم نون مصر",
+        "أكواد خصم نمشي",
+        "كود خصم ديفاكتو شغال",
+        "كوبون ممزورلد",
+        "أكواد خصم نون السعودية والإمارات"
       ]
     }
   ]
