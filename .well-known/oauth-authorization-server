@@ -10,6 +10,7 @@
   "agent_auth": {
     "skill": "https://noon-codes.com/auth.md",
     "register_uri": "https://github.com/NoonDiscounts/noon-codes/issues/new",
+    "claim_uri": "https://github.com/NoonDiscounts/noon-codes/issues/new",
     "identity_types_supported": ["anonymous"],
     "anonymous": {
       "credential_types_supported": ["none"],
