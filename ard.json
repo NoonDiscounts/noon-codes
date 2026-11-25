@@ -1,0 +1,33 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Tawfeer Hub - توفير هب",
+    "identifier": "did:web:noon-codes.com"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:noon-codes.com:data:coupon-codes",
+      "displayName": "أكواد خصم نون وديفاكتو ونمشي وممزورلد",
+      "type": "application/json",
+      "url": "https://noon-codes.com/codes.json",
+      "representativeQueries": [
+        "كود خصم نون مصر",
+        "أكواد خصم نمشي",
+        "كود خصم ديفاكتو شغال",
+        "كوبون ممزورلد",
+        "أكواد خصم نون السعودية والإمارات"
+      ]
+    },
+    {
+      "identifier": "urn:air:noon-codes.com:api:coupons",
+      "displayName": "Tawfeer Hub Coupons API (OpenAPI)",
+      "type": "application/openapi+json",
+      "url": "https://noon-codes.com/openapi.json",
+      "representativeQueries": [
+        "list active coupon codes",
+        "Noon Egypt discount codes API",
+        "Defacto Namshi Mumzworld coupon codes"
+      ]
+    }
+  ]
+}
