@@ -145,7 +145,7 @@ details p{margin:0;padding:12px 18px 16px;color:#334155}
 .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr 1.4fr;gap:24px}
 .foot-brand{display:flex;align-items:center;gap:10px;color:#fff;font-size:20px;font-weight:700;margin-bottom:8px}
 .foot-brand img{width:38px;height:38px;border-radius:10px}
-.site-footer h4{margin:0 0 8px;color:#fff}
+.site-footer h3{margin:0 0 8px;color:#fff}
 .site-footer ul{list-style:none;margin:0;padding:0;line-height:2.1}
 .site-footer .muted{color:#94a3b8}
 .disclosure{font-size:13px;border:1px solid #26324f;border-radius:10px;padding:8px 12px;margin:0}
