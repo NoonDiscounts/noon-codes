@@ -3,17 +3,17 @@
 const LOGOS = {"noon-egypt": "logos/noon.webp", "noon-ksa-uae": "logos/noon.webp", "noon-gcc": "logos/noon.webp", "defacto": "logos/defacto.svg", "namshi": "logos/namshi.svg", "mumzworld": "logos/mumzworld.svg"};
 const logoImg = (slug, cls = "ava") => `<img class="${cls}" src="${LOGOS[slug] || "logo.svg"}" alt="" width="48" height="48" loading="lazy" decoding="async">`;
 const STORES = {
-  "noon-egypt":   { name: "نون مصر", color: "#a16207", about: "منصة تسوق إلكتروني متاحة في مصر، تضم الإلكترونيات والموضة والمنزل والمزيد.",
+  "noon-egypt":   { name: "نون مصر", color: "#c2410c", about: "منصة تسوق إلكتروني متاحة في مصر، تضم الإلكترونيات والموضة والمنزل والمزيد.",
     links: [{ label: "نون مصر", url: "https://www.noon.com/egypt-ar/" }] },
-  "noon-ksa-uae": { name: "نون السعودية والإمارات", color: "#a16207", about: "نون في السعودية والإمارات. اختر الدولة الصحيحة قبل استخدام الكود.",
+  "noon-ksa-uae": { name: "نون السعودية والإمارات", color: "#c2410c", about: "نون في السعودية والإمارات. اختر الدولة الصحيحة قبل استخدام الكود.",
     links: [{ label: "نون السعودية", url: "https://www.noon.com/saudi-ar/" }, { label: "نون الإمارات", url: "https://www.noon.com/uae-ar/" }] },
-  "noon-gcc":     { name: "نون الخليج", color: "#a16207", about: "أكواد مخصصة لمتجر نون في دول الخليج.",
+  "noon-gcc":     { name: "نون الخليج", color: "#c2410c", about: "أكواد مخصصة لمتجر نون في دول الخليج.",
     links: [{ label: "نون الإمارات", url: "https://www.noon.com/uae-ar/" }] },
-  "defacto":      { name: "ديفاكتو", color: "#0f4c81", about: "علامة أزياء تقدم ملابس للرجال والنساء والأطفال.",
+  "defacto":      { name: "ديفاكتو", color: "#c2410c", about: "علامة أزياء تقدم ملابس للرجال والنساء والأطفال.",
     links: [{ label: "ديفاكتو", url: "https://www.defacto.com.eg/ar-eg" }] },
-  "namshi":       { name: "نمشي", color: "#a3173a", about: "متجر إلكتروني للأزياء والجمال والأحذية في المنطقة.",
+  "namshi":       { name: "نمشي", color: "#c2410c", about: "متجر إلكتروني للأزياء والجمال والأحذية في المنطقة.",
     links: [{ label: "نمشي", url: "https://www.namshi.com/" }] },
-  "mumzworld":    { name: "ممزورلد", color: "#be3a6e", about: "متجر متخصص في مستلزمات الأمهات والأطفال.",
+  "mumzworld":    { name: "ممزورلد", color: "#c2410c", about: "متجر متخصص في مستلزمات الأمهات والأطفال.",
     links: [{ label: "ممزورلد", url: "https://www.mumzworld.com/ar" }] }
 };
 
@@ -22,6 +22,8 @@ let allCodes = [], activeStore = "all", query = "";
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const fmtDate = iso => { const d = new Date(iso + "T00:00:00"); return isNaN(d) ? "—" : d.toLocaleDateString("ar-EG", { day: "numeric", month: "long", year: "numeric" }); };
+const fmtShort = iso => { const d = new Date(iso + "T00:00:00"); return isNaN(d) ? "" : d.toLocaleDateString("ar-EG", { day: "numeric", month: "long" }); };
+const verLabel = c => { const d = typeof c.verified === "string" ? fmtShort(c.verified) : ""; return d ? `آخر تحقق: ${d}` : "تم التحقق"; };
 const daysLeft = iso => Math.ceil((new Date(iso + "T23:59:59") - new Date()) / 86400000);
 const linksOf = c => c.url ? [{ label: STORES[c.store]?.name || "المتجر", url: c.url }] : (STORES[c.store]?.links || []);
 
@@ -95,11 +97,12 @@ function storeButtons(c) {
 }
 
 function cardHTML(c, s) {
-  const ver = c.verified ? `<span class="ver"><svg class="ic" width="20" height="20"><use href="#i-check"/></svg>تم التحقق</span>` : "";
+  const ver = c.verified ? `<span class="ver"><svg class="ic" width="20" height="20"><use href="#i-check"/></svg>${verLabel(c)}</span>` : "";
   return `
     ${logoImg(c.store)}
     <div class="c-body">
       <div class="c-meta"><span class="badge">${esc(s?.name || c.store)}</span>${ver}</div>
+      ${c.discount ? `<div class="chip">${esc(c.discount)}</div>` : ""}
       <h3>${esc(c.title)}</h3>
       <p>${esc(c.description)}${c.terms ? ` <span class="muted">(${esc(c.terms)})</span>` : ""}</p>
     </div>
@@ -118,7 +121,7 @@ function renderHeroTicket() {
   if (!c) { box.hidden = true; return; }
   const s = STORES[c.store];
   box.style.setProperty("--store", s?.color || "#a16207");
-  box.innerHTML = `<p class="t-top">${logoImg(c.store)}<span>أحدث كود ${esc(s?.name || "")}</span></p><div class="code-box"><span class="code">${esc(c.code)}</span><button class="btn-copy" type="button">نسخ</button></div>${c.verified ? `<p class="ver"><svg class="ic" width="20" height="20"><use href="#i-check"/></svg>تم التحقق</p>` : ""}${storeButtons(c)}`;
+  box.innerHTML = `<p class="t-top">${logoImg(c.store)}<span>أحدث كود ${esc(s?.name || "")}</span></p><div class="code-box"><span class="code">${esc(c.code)}</span><button class="btn-copy" type="button">نسخ</button></div>${c.verified ? `<p class="ver"><svg class="ic" width="20" height="20"><use href="#i-check"/></svg>${verLabel(c)}</p>` : ""}${storeButtons(c)}`;
   wireCard(box, c);
 }
 function render() {

@@ -3,120 +3,136 @@
     "id": "noon-egy-rz46",
     "store": "noon-egypt",
     "code": "RZ46",
-    "title": "كود خصم نون مصر",
-    "description": "استخدم الكود عند الدفع في نون مصر.",
-    "verified": "2026-11-19"
+    "title": "كود خصم نون مصر RZ46",
+    "description": "خصم 10% حتى 50 جنيه، و5% حتى 25 جنيه",
+    "verified": "2026-11-19",
+    "discount": "10% حتى 50 ج.م"
   },
   {
     "id": "noon-egy-zwr",
     "store": "noon-egypt",
     "code": "ZWR",
-    "title": "كود خصم نون مصر",
-    "description": "استخدم الكود عند الدفع في نون مصر.",
-    "verified": "2026-11-19"
+    "title": "كود خصم نون مصر ZWR",
+    "description": "خصم 10% حتى 50 جنيه، و5% حتى 25 جنيه",
+    "verified": "2026-11-19",
+    "discount": "10% حتى 50 ج.م"
   },
   {
-    "id": "noon-egy-h28",
+    "id": "noon-egy-hz8",
     "store": "noon-egypt",
-    "code": "H28",
-    "title": "كود خصم نون مصر",
-    "description": "استخدم الكود عند الدفع في نون مصر.",
-    "verified": "2026-11-19"
+    "code": "HZ8",
+    "title": "كود خصم نون مصر HZ8",
+    "description": "خصم 10% حتى 50 جنيه، و5% حتى 25 جنيه",
+    "verified": "2026-11-19",
+    "discount": "10% حتى 50 ج.م"
   },
   {
     "id": "noon-egy-jdf",
     "store": "noon-egypt",
     "code": "JDF",
-    "title": "كود خصم نون مصر",
-    "description": "استخدم الكود عند الدفع في نون مصر.",
-    "verified": "2026-11-19"
+    "title": "كود خصم نون مصر JDF",
+    "description": "خصم 10% حتى 50 جنيه، و5% حتى 25 جنيه",
+    "verified": "2026-11-19",
+    "discount": "10% حتى 50 ج.م"
   },
   {
     "id": "noon-egy-klp",
     "store": "noon-egypt",
     "code": "KLP",
-    "title": "كود خصم نون مصر",
-    "description": "استخدم الكود عند الدفع في نون مصر.",
-    "verified": "2026-11-19"
-  },
-  {
-    "id": "noon-egy-xff10",
-    "store": "noon-egypt",
-    "code": "XFF10",
-    "title": "كود خصم نون مصر",
-    "description": "استخدم الكود عند الدفع في نون مصر.",
-    "verified": "2026-11-19"
+    "title": "كود خصم نون مصر KLP",
+    "description": "خصم 10% حتى 50 جنيه، و5% حتى 25 جنيه",
+    "verified": "2026-11-19",
+    "discount": "10% حتى 50 ج.م"
   },
   {
     "id": "noon-egy-rz700",
     "store": "noon-egypt",
     "code": "RZ700",
-    "title": "كود خصم نون مصر",
-    "description": "استخدم الكود عند الدفع في نون مصر.",
-    "verified": "2026-11-19"
+    "title": "كود خصم نون مصر RZ700",
+    "description": "خصم 10% حتى 50 جنيه، و5% حتى 25 جنيه",
+    "verified": "2026-11-19",
+    "discount": "10% حتى 50 ج.م"
   },
   {
     "id": "noon-ksa-uae-zv148",
     "store": "noon-ksa-uae",
     "code": "ZV148",
-    "title": "كود خصم نون السعودية والإمارات",
-    "description": "للاستخدام في نون السعودية والإمارات.",
-    "verified": "2026-11-19"
+    "title": "كود خصم نون السعودية والإمارات ZV148",
+    "description": "خصم 10% حتى 50 درهم للعميل الجديد، و5% حتى 10 دراهم للعميل المتكرر (كاش باك)",
+    "verified": "2026-11-19",
+    "discount": "10% حتى 50 درهم"
   },
   {
     "id": "noon-ksa-uae-krr143",
     "store": "noon-ksa-uae",
     "code": "KRR143",
-    "title": "كود خصم نون السعودية والإمارات",
-    "description": "للاستخدام في نون السعودية والإمارات.",
-    "verified": "2026-11-19"
+    "title": "كود خصم نون السعودية والإمارات KRR143",
+    "description": "خصم 10% حتى 50 درهم للعميل الجديد، و5% حتى 10 دراهم للعميل المتكرر (كاش باك)",
+    "verified": "2026-11-19",
+    "discount": "10% حتى 50 درهم"
   },
   {
     "id": "noon-all-zv124",
     "store": "noon-ksa-uae",
     "code": "ZV124",
     "title": "كود خصم نون (السعودية / الإمارات / مصر)",
-    "description": "يعمل في السعودية والإمارات ومصر. اختر الدولة الصحيحة قبل الدفع.",
-    "verified": "2026-11-19"
+    "description": "في مصر: خصم 10% حتى 50 جنيه، و5% حتى 25 جنيه. في السعودية والإمارات: خصم 10% حتى 50 درهم للعميل الجديد، و5% حتى 10 دراهم للعميل المتكرر (كاش باك)",
+    "verified": "2026-11-19",
+    "discount": "10% حتى 50 جنيه / درهم"
+  },
+  {
+    "id": "noon-gcc-xff10",
+    "store": "noon-gcc",
+    "code": "XFF10",
+    "title": "كود خصم نون الخليج XFF10",
+    "description": "خصم 10% حتى 50 درهم للعميل الجديد، و5% حتى 10 دراهم للعميل المتكرر (كاش باك)",
+    "verified": "2026-11-19",
+    "discount": "10% حتى 50 درهم"
   },
   {
     "id": "noon-gcc-xff11",
     "store": "noon-gcc",
     "code": "XFF11",
-    "title": "كود خصم نون الخليج",
-    "description": "للاستخدام في نون الخليج.",
-    "verified": "2026-11-19"
+    "title": "كود خصم نون الخليج XFF11",
+    "description": "خصم 10% حتى 50 درهم للعميل الجديد، و5% حتى 10 دراهم للعميل المتكرر (كاش باك)",
+    "verified": "2026-11-19",
+    "discount": "10% حتى 50 درهم"
   },
   {
     "id": "noon-gcc-mp88",
     "store": "noon-gcc",
     "code": "MP88",
-    "title": "كود خصم نون الخليج",
-    "description": "للاستخدام في نون الخليج.",
-    "verified": "2026-11-19"
+    "title": "كود خصم نون الخليج MP88",
+    "description": "خصم 10% حتى 50 درهم للعميل الجديد، و5% حتى 10 دراهم للعميل المتكرر (كاش باك)",
+    "verified": "2026-11-19",
+    "discount": "10% حتى 50 درهم"
   },
   {
-    "id": "defacto-d57",
+    "id": "defacto-d67",
     "store": "defacto",
-    "code": "D57",
-    "title": "كود خصم ديفاكتو",
-    "description": "استخدم الكود عند الدفع في Defacto.",
-    "verified": "2026-11-19"
+    "code": "D67",
+    "title": "كود خصم ديفاكتو D67",
+    "description": "خصم 10% على كل المتجر",
+    "verified": "2026-11-19",
+    "discount": "10% على كل المتجر"
   },
   {
     "id": "namshi-acc20",
     "store": "namshi",
     "code": "ACC20",
-    "title": "كود خصم نمشي",
-    "description": "استخدم الكود عند الدفع في نمشي Namshi.",
-    "verified": "2026-11-19"
+    "title": "كود خصم نمشي ACC20",
+    "description": "خصم 5% على المنتجات المخفضة و20% على المنتجات غير المخفضة",
+    "verified": "2026-11-19",
+    "discount": "حتى 20%"
   },
   {
     "id": "mumzworld-pse298",
     "store": "mumzworld",
     "code": "PSE298",
-    "title": "كود خصم ممزورلد",
-    "description": "استخدم الكود عند الدفع في Mumzworld.",
-    "verified": "2026-11-19"
+    "title": "كود خصم ممزورلد PSE298",
+    "description": "خصم 10% حتى 50 درهم",
+    "verified": "2026-11-19",
+    "discount": "10% حتى 50 درهم",
+    "terms": "الحد الأدنى للطلب 200 درهم. الكود يعمل 3 مرات فقط لكل عميل طوال الحياة. لا يشمل المناديل والحفاضات والحليب."
   }
 ]
