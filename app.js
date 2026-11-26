@@ -17,6 +17,7 @@ const STORES = {
     links: [{ label: "ممزورلد", url: "https://www.mumzworld.com/ar" }] }
 };
 
+const BASE_TITLE = document.title, BASE_H1 = document.getElementById("pageTitle").textContent; // العنوان والـH1 الثابتين من index.html
 let allCodes = [], activeStore = "all", query = "";
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -66,8 +67,8 @@ function setStore(slug, scrollSync = true) {
   });
   const s = STORES[slug];
   $("codesTitle").textContent = s ? `أكواد خصم ${s.name}` : "كل أكواد الخصم";
-  document.title = s ? `أكواد خصم ${s.name} 2026 | توفير هب` : "توفير هب | أكواد خصم نون مصر وديفاكتو ونمشي وممزورلد";
-  $("pageTitle").textContent = s ? `أكواد خصم ${s.name}` : "أكواد خصم نون وديفاكتو ونمشي وممزورلد";
+  document.title = s ? `أكواد خصم ${s.name} 2026 | توفير هب` : BASE_TITLE;
+  $("pageTitle").textContent = s ? `أكواد خصم ${s.name}` : BASE_H1;
   $("aboutTitle").textContent = s ? `عن ${s.name}` : "عن المتاجر";
   $("aboutText").textContent = s ? s.about : "اختر متجرًا من القائمة لعرض معلومات سريعة عنه.";
   const a = $("aboutLink");
