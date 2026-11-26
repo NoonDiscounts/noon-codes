@@ -227,3 +227,5 @@ nav a{padding:6px 8px;font-size:14px}
 .ticket{transform:none}
 .c-actions>*{flex:0 0 auto!important}
 }
+#heroTicket{min-height:260px}
+#cards{min-height:640px}
