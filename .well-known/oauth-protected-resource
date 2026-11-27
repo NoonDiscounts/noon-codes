@@ -1,6 +1,0 @@
-{
-  "resource": "https://noon-codes.com/",
-  "authorization_servers": ["https://noon-codes.com"],
-  "scopes_supported": ["read:coupons"],
-  "bearer_methods_supported": ["header"]
-}
