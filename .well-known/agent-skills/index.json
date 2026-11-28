@@ -4,9 +4,9 @@
     {
       "name": "tawfeer-coupons",
       "type": "skill-md",
-      "description": "Get active discount codes for Noon Egypt, Noon KSA/UAE, Defacto, Namshi and Mumzworld",
-      "url": "https://noondiscounts.github.io/noon-codes/.well-known/agent-skills/tawfeer-coupons/SKILL.md",
-      "digest": "sha256:9f5dad37142dd3feb14e1215524b6e35705c157231b301da681314d691a43c67"
+      "description": "Get active discount codes for Noon Egypt, Noon KSA/UAE, DeFacto, Namshi and Mumzworld",
+      "url": "https://noon-codes.com/.well-known/agent-skills/tawfeer-coupons/SKILL.md"
+       
     }
   ]
 }
