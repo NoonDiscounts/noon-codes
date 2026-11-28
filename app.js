@@ -1,5 +1,5 @@
 /* ====== المتاجر ======
-   links: استبدلها بروابط الأفلييت الخاصة بك. about: نبذة قصيرة. */
+   links: روابط المتاجر المعتمدة في هذا الموقع. about: نبذة قصيرة. */
 const LOGOS = {"noon-egypt": "logos/noon.webp", "noon-ksa-uae": "logos/noon.webp", "noon-gcc": "logos/noon.webp", "defacto": "logos/defacto.svg", "namshi": "logos/namshi.svg", "mumzworld": "logos/mumzworld.svg"};
 const logoImg = (slug, cls = "ava") => `<img class="${cls}" src="${LOGOS[slug] || "logo.svg"}" alt="" width="48" height="48" loading="lazy" decoding="async">`;
 const STORES = {
@@ -8,7 +8,7 @@ const STORES = {
   "noon-ksa-uae": { name: "نون السعودية والإمارات", color: "#c2410c", about: "نون في السعودية والإمارات. اختر الدولة الصحيحة قبل استخدام الكود.",
     links: [{ label: "نون السعودية", url: "https://www.noon.com/saudi-ar/" }, { label: "نون الإمارات", url: "https://www.noon.com/uae-ar/" }] },
   "noon-gcc":     { name: "نون الخليج", color: "#c2410c", about: "أكواد مخصصة لمتجر نون في دول الخليج.",
-    links: [{ label: "نون الإمارات", url: "https://www.noon.com/uae-ar/" }] },
+    links: [{ label: "نون السعودية", url: "https://www.noon.com/saudi-ar/" }, { label: "نون الإمارات", url: "https://www.noon.com/uae-ar/" }] },
   "defacto":      { name: "ديفاكتو", color: "#c2410c", about: "علامة أزياء تقدم ملابس للرجال والنساء والأطفال.",
     links: [{ label: "ديفاكتو", url: "https://www.defacto.com.eg/ar-eg" }] },
   "namshi":       { name: "نمشي", color: "#c2410c", about: "متجر إلكتروني للأزياء والجمال والأحذية في المنطقة.",
@@ -22,10 +22,10 @@ let allCodes = [], activeStore = "all", query = "";
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const fmtDate = iso => { const d = new Date(iso + "T00:00:00"); return isNaN(d) ? "—" : d.toLocaleDateString("ar-EG", { day: "numeric", month: "long", year: "numeric" }); };
-const fmtShort = iso => { const d = new Date(iso + "T00:00:00"); return isNaN(d) ? "" : d.toLocaleDateString("ar-EG", { day: "numeric", month: "long" }); };
-const verLabel = c => { const d = typeof c.verified === "string" ? fmtShort(c.verified) : ""; return d ? `آخر تحقق: ${d}` : "تم التحقق"; };
+ 
+const verLabel = c => { const d = typeof c.verified === "string" ? fmtDate(c.verified) : ""; return d ? `آخر تحقق: ${d}` : "تم التحقق"; };
 const daysLeft = iso => Math.ceil((new Date(iso + "T23:59:59") - new Date()) / 86400000);
-const linksOf = c => c.url ? [{ label: STORES[c.store]?.name || "المتجر", url: c.url }] : (STORES[c.store]?.links || []);
+const linksOf = c => c.url ? [{ label: STORES[c.store]?.name || "المتجر", url: c.url }] : (STORES[c.store]?.links || []); const codeStores = c => c.id === "noon-all-zv124" ? ["noon-ksa-uae", "noon-egypt"] : [c.store]; // ZV124 يعمل في مصر أيضاً رغم أن متجره الأساسي noon-ksa-uae، ويُحسب مرة واحدة في إجمالي 15 كوداً. // الكود ZV124 (noon-all-zv124) يعمل في مصر أيضاً رغم أن متجره الأساسي noon-ksa-uae، فيظهر في قائمتي مصر والسعودية والإمارات، ويُحسب مرة واحدة في إجمالي الأكواد (15). const codeStores = c => c.id === "noon-all-zv124" ? ["noon-ksa-uae", "noon-egypt"] : [c.store];
 
 async function loadCodes() {
   try {
@@ -48,7 +48,7 @@ async function loadCodes() {
 }
 
 function storeCard(slug) {
-  const s = STORES[slug], n = allCodes.filter(c => c.store === slug).length;
+  const s = STORES[slug], n = allCodes.filter(c => codeStores(c).includes(slug)).length;
   const b = document.createElement("button");
   b.className = "store-card"; b.type = "button";
   b.style.setProperty("--store", s.color);
@@ -81,7 +81,7 @@ function setStore(slug, scrollSync = true) {
 function filtered(q = query, store = activeStore) {
   q = q.trim().toLowerCase();
   return allCodes.filter(c => {
-    if (store !== "all" && c.store !== store) return false;
+    if (store !== "all" && !codeStores(c).includes(store)) return false;
     if (!q) return true;
     const s = STORES[c.store];
     return [c.code, c.title, c.description, s?.name, c.store].join(" ").toLowerCase().includes(q);
@@ -167,12 +167,12 @@ function registerWebMCP() {
   try {
     mc.registerTool({
       name: "search_coupon_codes",
-      description: "البحث في أكواد الخصم الحالية حسب المتجر أو كلمة بحث، ويرجع الكود والمتجر وتاريخ الانتهاء ورابط المتجر.",
+      description: "البحث في أكواد الخصم الحالية حسب المتجر أو كلمة بحث، ويرجع الكود والمتجر ونسبة الخصم ورابط المتجر.",
       inputSchema: { type: "object", properties: {
         query: { type: "string", description: "كلمة بحث اختيارية" },
         store: { type: "string", enum: ["all", ...Object.keys(STORES)], description: "معرّف المتجر" } } },
       async execute({ query: q = "", store = "all" } = {}) {
-        const out = filtered(q, store).map(c => ({ code: c.code, store: STORES[c.store]?.name, url: linksOf(c)[0]?.url }));
+        const out = filtered(q, store).map(c => ({ code: c.code, store: STORES[c.store]?.name, discount: c.discount, url: linksOf(c)[0]?.url }));
         return { content: [{ type: "text", text: JSON.stringify(out) }] };
       }
     });
