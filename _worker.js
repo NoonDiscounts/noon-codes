@@ -1,9 +1,11 @@
 // Cloudflare Pages: يرجع Markdown عندما يطلب العميل Accept: text/markdown
 // ===== MCP (Streamable HTTP، بدون حالة) على المسار /mcp =====
+// This worker serves only static assets and /mcp. It has no /auth, /token
+// or /register endpoints, no authorization server and no JWKS endpoint.
 const STORE_IDS = ["noon-egypt", "noon-ksa-uae", "noon-gcc", "defacto", "namshi", "mumzworld"];
 const TOOL = {
   name: "get-coupon-codes",
-  description: "Get active discount codes from codes.json, optionally filtered by store or search text.",
+  description: "Get discount codes from codes.json, optionally filtered by store or search text. Each result has code, title, description, store and url only. No expiry date is published for these codes.",
   inputSchema: { type: "object", properties: {
     store: { type: "string", enum: STORE_IDS, description: "Store id" },
     query: { type: "string", description: "Optional search text" } } }
@@ -25,7 +27,7 @@ async function handleMcp(request, env, url) {
       const { store, query = "" } = m.params.arguments || {};
       const all = await (await env.ASSETS.fetch(new URL("/codes.json", url))).json();
       const q = String(query).trim().toLowerCase();
-      const out = all.filter(c => (!store || c.store === store) && (!q || [c.code, c.title, c.description, c.store].join(" ").toLowerCase().includes(q)));
+      const out = all.filter(c => (!store || c.store === store) && (!q || [c.code, c.title, c.description, c.store].join(" ").toLowerCase().includes(q))).map(c => ({ code: c.code, title: c.title, description: c.description, store: c.store, url: c.url }));
       return rpc(m.id, { content: [{ type: "text", text: JSON.stringify(out) }] });
     }
     default: return rpc(m.id, null, { code: -32601, message: "Method not found" });
