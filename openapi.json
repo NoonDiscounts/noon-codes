@@ -3,7 +3,7 @@
   "info": {
     "title": "Tawfeer Hub Coupons API",
     "version": "1.0.0",
-    "description": "Active discount codes for Noon Egypt, Noon KSA/UAE, Defacto, Namshi and Mumzworld",
+    "description": "Active discount codes for Noon Egypt, Noon KSA/UAE, DeFacto, Namshi and Mumzworld. The 15 codes in /codes.json were last verified on 2026-11-19; no expiry date is published for any code.",
     "contact": {
       "url": "https://noon-codes.com/"
     }
@@ -71,9 +71,26 @@
           "description": {
             "type": "string"
           },
+          "discount": {
+            "type": "string",
+            "example": "خصم 10% حتى 50 جنيه"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://www.noon.com/egypt-ar/"
+          },
+          "terms": {
+            "type": "string",
+            "example": "حد أدنى للطلب 200 درهم، يعمل 3 مرات فقط لكل عميل طوال الحياة، لا يشمل المناديل والحفاضات والحليب."
+          },
+          "featured": {
+            "type": "boolean"
+          },
           "verified": {
             "type": "string",
-            "format": "date"
+            "format": "date",
+            "example": "2026-11-19"
           }
         }
       }
